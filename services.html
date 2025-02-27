@@ -2,67 +2,216 @@
 <html lang="ko">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>서비스 - BRAND</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EST - AI Solutions</title>
+    <style>
+        :root {
+            --main-color: #6c5ce7;
+            --secondary-color: #a29bfe;
+            --dark-color: #2d3436;
+            --light-color: #dfe6e9;
+            --transition: all 0.3s ease
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color)
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--main-color), var(--secondary-color));
+            color: white;
+            padding: 60px 20px;
+            text-align: center
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2)
+        }
+
+        header p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 0 auto
+        }
+
+        nav {
+            background: white;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: center
+        }
+
+        nav a {
+            color: var(--main-color);
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 600;
+            transition: var(--transition)
+        }
+
+        nav a:hover {
+            color: var(--secondary-color)
+        }
+
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto
+        }
+
+        section h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: var(--main-color)
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition)
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px)
+        }
+
+        .projects-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px
+        }
+
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1)
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid var(--light-color);
+            border-radius: 5px
+        }
+
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 40px 20px;
+            text-align: center
+        }
+
+        .main-content {
+            text-align: center;
+            padding: 80px 20px
+        }
+
+        .main-content h1 {
+            font-size: 3em;
+            margin-bottom: 30px;
+            color: var(--main-color)
+        }
+
+        .main-content p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto
+        }
+
+        .button {
+            display: inline-block;
+            background: var(--main-color);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            margin-top: 30px;
+            transition: var(--transition)
+        }
+
+        .button:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px)
+        }
+
+        @media (max-width:768px) {
+            header h1 {
+                font-size: 2.5em
+            }
+
+            nav {
+                padding: 15px;
+                flex-wrap: wrap
+            }
+
+            nav a {
+                margin: 5px 10px
+            }
+
+            section,
+            .main-content {
+                padding: 40px 20px
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <div id="header"></div>
-
-  <!-- 서비스 페이지 콘텐츠 -->
-  <section class="page-header">
-    <div class="container">
-      <h1>Our Services</h1>
-      <p>최고의 디지털 솔루션을 제공합니다</p>
+    <header>
+        <h1>EST</h1>
+        <p>Empowering Business Through AI Innovation</p>
+    </header>
+    <nav><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a
+            href="projects.html">Projects</a><a href="contact.html">Contact</a></nav>
+    <div class="main-content">
+        <h1>Welcome to EST</h1>
+        <p>Leading the digital transformation with cutting-edge AI solutions. Explore our services to see how we can
+            elevate your business.</p><a href="services.html" class="button">Discover Our Services</a>
     </div>
-  </section>
-
-  <section class="services-grid">
-    <div class="container">
-      <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-desktop"></i>
-        </div>
-        <h3>웹 개발</h3>
-        <p>반응형 웹사이트 제작부터 복잡한 웹 애플리케이션까지 모든 웹 서비스를 제공합니다.</p>
-        <a href="#" class="learn-more">자세히 보기 <i class="fas fa-arrow-right"></i></a>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-mobile-alt"></i>
-        </div>
-        <h3>앱 개발</h3>
-        <p>iOS와 Android 플랫폼에서 최적화된 모바일 애플리케이션을 개발합니다.</p>
-        <a href="#" class="learn-more">자세히 보기 <i class="fas fa-arrow-right"></i></a>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-paint-brush"></i>
-        </div>
-        <h3>UI/UX 디자인</h3>
-        <p>사용자 중심의 직관적이고 아름다운 디자인으로 최적의 경험을 제공합니다.</p>
-        <a href="#" class="learn-more">자세히 보기 <i class="fas fa-arrow-right"></i></a>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-chart-pie"></i>
-        </div>
-        <h3>데이터 분석</h3>
-        <p>빅데이터 분석을 통해 비즈니스 인사이트를 도출하고 전략을 수립합니다.</p>
-        <a href="#" class="learn-more">자세히 보기 <i class="fas fa-arrow-right"></i></a>
-      </div>
-    </div>
-  </section>
-
-  <div id="footer"></div>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="script.js"></script>
+    <footer>
+        <p>&copy; 2023 EST. All rights reserved.</p>
+        <p>서울특별시 강남구 테헤란로 123 | Tel: 02-1234-5678 | Email: contact@est.com</p>
+    </footer>
 </body>
 
 </html>

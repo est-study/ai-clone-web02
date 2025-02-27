@@ -1,217 +1,425 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EST - AI Solutions</title>
+    <title>EST - Our Projects</title>
     <style>
-        :root {
-            --main-color: #6c5ce7;
-            --secondary-color: #a29bfe;
-            --dark-color: #2d3436;
-            --light-color: #dfe6e9;
-            --transition: all 0.3s ease
+        :root{
+            --main-color:#6c5ce7;
+            --secondary-color:#a29bfe;
+            --dark-color:#2d3436;
+            --light-color:#dfe6e9;
+            --transition:all 0.3s ease
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box
         }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--dark-color)
+        body{
+            font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+            line-height:1.6;
+            color:var(--dark-color)
         }
-
-        header {
-            background: linear-gradient(135deg, var(--main-color), var(--secondary-color));
-            color: white;
-            padding: 60px 20px;
-            text-align: center
+        header{
+            background:linear-gradient(135deg,var(--main-color),var(--secondary-color));
+            color:white;
+            padding:60px 20px;
+            text-align:center
         }
-
-        header h1 {
-            font-size: 3.5em;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2)
+        header h1{
+            font-size:3.5em;
+            margin-bottom:20px;
+            text-shadow:2px 2px 4px rgba(0,0,0,0.2)
         }
-
-        header p {
-            font-size: 1.2em;
-            max-width: 600px;
-            margin: 0 auto
+        header p{
+            font-size:1.2em;
+            max-width:600px;
+            margin:0 auto
         }
-
-        nav {
-            background: white;
-            padding: 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            display: flex;
-            justify-content: center
+        nav{
+            background:white;
+            padding:20px;
+            box-shadow:0 2px 10px rgba(0,0,0,0.1);
+            position:sticky;
+            top:0;
+            z-index:100;
+            display:flex;
+            justify-content:center
         }
-
-        nav a {
-            color: var(--main-color);
-            text-decoration: none;
-            margin: 0 20px;
-            font-weight: 600;
-            transition: var(--transition)
+        nav a{
+            color:var(--main-color);
+            text-decoration:none;
+            margin:0 20px;
+            font-weight:600;
+            transition:var(--transition)
         }
-
-        nav a:hover {
-            color: var(--secondary-color)
+        nav a:hover{
+            color:var(--secondary-color)
         }
-
-        section {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto
+        section{
+            padding:80px 20px;
+            max-width:1200px;
+            margin:0 auto
         }
-
-        section h2 {
-            font-size: 2.5em;
-            margin-bottom: 30px;
-            color: var(--main-color)
+        section h2{
+            font-size:2.5em;
+            margin-bottom:30px;
+            color:var(--main-color)
         }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px
+        footer{
+            background:var(--dark-color);
+            color:white;
+            padding:40px 20px;
+            text-align:center
         }
-
-        .service-card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: var(--transition)
+        .project-intro{
+            text-align:center;
+            margin-bottom:50px
         }
-
-        .service-card:hover {
-            transform: translateY(-10px)
+        .project-intro p{
+            max-width:800px;
+            margin:0 auto
         }
-
-        .projects-showcase {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px
+        .project-filter{
+            margin-bottom:30px;
+            text-align:center
         }
-
-        .project-card {
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1)
+        .filter-button{
+            background:none;
+            border:2px solid var(--main-color);
+            color:var(--main-color);
+            padding:10px 20px;
+            margin:0 5px 10px;
+            border-radius:5px;
+            cursor:pointer;
+            font-weight:600;
+            transition:var(--transition)
         }
-
-        .project-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover
+        .filter-button.active,.filter-button:hover{
+            background:var(--main-color);
+            color:white
         }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto
+        .projects-showcase{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+            gap:30px;
+            margin-top:40px
         }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 15px;
-            margin-bottom: 20px;
-            border: 1px solid var(--light-color);
-            border-radius: 5px
+        .project-card{
+            position:relative;
+            overflow:hidden;
+            border-radius:10px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.1);
+            transition:var(--transition)
         }
-
-        footer {
-            background: var(--dark-color);
-            color: white;
-            padding: 40px 20px;
-            text-align: center
+        .project-card:hover{
+            transform:translateY(-10px)
         }
-
-        .main-content {
-            text-align: center;
-            padding: 80px 20px
+        .project-card img{
+            width:100%;
+            height:200px;
+            object-fit:cover
         }
-
-        .main-content h1 {
-            font-size: 3em;
-            margin-bottom: 30px;
-            color: var(--main-color)
+        .project-card-content{
+            padding:20px
         }
-
-        .main-content p {
-            font-size: 1.2em;
-            max-width: 800px;
-            margin: 0 auto
+        .project-card-content h3{
+            color:var(--main-color);
+            margin-bottom:10px
         }
-
-        .button {
-            display: inline-block;
-            background: var(--main-color);
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 600;
-            margin-top: 30px;
-            transition: var(--transition)
+        .project-card-content p{
+            margin-bottom:15px
         }
-
-        .button:hover {
-            background: var(--secondary-color);
-            transform: translateY(-3px)
+        .project-card-content .category{
+            display:inline-block;
+            background:var(--secondary-color);
+            color:white;
+            padding:5px 10px;
+            border-radius:20px;
+            font-size:0.8em;
+            margin-bottom:10px
         }
-
-        @media (max-width:768px) {
-            header h1 {
-                font-size: 2.5em
+        .project-detail{
+            margin-top:80px
+        }
+        .project-detail-header{
+            text-align:center;
+            margin-bottom:40px
+        }
+        .project-detail-header h3{
+            font-size:2em;
+            color:var(--main-color);
+            margin-bottom:10px
+        }
+        .project-detail-content{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:50px;
+            align-items:start
+        }
+        .project-detail-image{
+            border-radius:10px;
+            overflow:hidden;
+            box-shadow:0 5px 15px rgba(0,0,0,0.1)
+        }
+        .project-detail-image img{
+            width:100%;
+            height:auto;
+            display:block
+        }
+        .project-detail-text h4{
+            color:var(--main-color);
+            margin:20px 0 10px
+        }
+        .project-stats{
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:20px;
+            margin:30px 0
+        }
+        .stat-card{
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.1);
+            text-align:center
+        }
+        .stat-card h4{
+            color:var(--main-color);
+            margin-bottom:10px
+        }
+        .stat-card p{
+            font-size:1.5em;
+            font-weight:bold
+        }
+        .testimonial{
+            background:var(--light-color);
+            padding:30px;
+            border-radius:10px;
+            margin-top:30px;
+            position:relative
+        }
+        .testimonial::before{
+            content:'"';
+            position:absolute;
+            top:-20px;
+            left:20px;
+            font-size:80px;
+            color:var(--main-color);
+            opacity:0.2
+        }
+        .client-info{
+            display:flex;
+            align-items:center;
+            margin-top:20px
+        }
+        .client-info img{
+            width:50px;
+            height:50px;
+            border-radius:50%;
+            margin-right:15px
+        }
+        .client-info h5{
+            margin-bottom:0
+        }
+        .cta-section{
+            background:linear-gradient(135deg,var(--main-color),var(--secondary-color));
+            color:white;
+            padding:60px 20px;
+            text-align:center;
+            margin-top:80px;
+            border-radius:10px
+        }
+        .cta-section h3{
+            font-size:2em;
+            margin-bottom:20px
+        }
+        .cta-section p{
+            max-width:600px;
+            margin:0 auto 30px
+        }
+        .cta-button{
+            display:inline-block;
+            background:white;
+            color:var(--main-color);
+            padding:15px 30px;
+            text-decoration:none;
+            border-radius:5px;
+            font-weight:600;
+            transition:var(--transition)
+        }
+        .cta-button:hover{
+            background:var(--light-color);
+            transform:translateY(-3px)
+        }
+        @media (max-width:768px){
+            header h1{
+                font-size:2.5em
             }
-
-            nav {
-                padding: 15px;
-                flex-wrap: wrap
+            nav{
+                padding:15px;
+                flex-wrap:wrap
             }
-
-            nav a {
-                margin: 5px 10px
+            nav a{
+                margin:5px 10px
             }
-
-            section,
-            .main-content {
-                padding: 40px 20px
+            section{
+                padding:40px 20px
+            }
+            .project-detail-content{
+                grid-template-columns:1fr
+            }
+            .project-stats{
+                grid-template-columns:1fr
             }
         }
     </style>
 </head>
-
 <body>
     <header>
         <h1>EST</h1>
         <p>Empowering Business Through AI Innovation</p>
     </header>
-    <nav><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a
-            href="projects.html">Projects</a><a href="contact.html">Contact</a></nav>
-    <div class="main-content">
-        <h1>Welcome to EST</h1>
-        <p>Leading the digital transformation with cutting-edge AI solutions. Explore our services to see how we can
-            elevate your business.</p><a href="services.html" class="button">Discover Our Services</a>
-    </div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <section>
+        <h2>Our Projects</h2>
+        <div class="project-intro">
+            <p>EST는 다양한 산업 분야에서 AI 기술을 활용한 혁신적인 프로젝트를 성공적으로 수행해왔습니다. 저희의 대표 프로젝트를 소개합니다.</p>
+        </div>
+        <div class="project-filter">
+            <button class="filter-button active">All</button>
+            <button class="filter-button">제조</button>
+            <button class="filter-button">금융</button>
+            <button class="filter-button">의료</button>
+            <button class="filter-button">유통</button>
+        </div>
+        <div class="projects-showcase">
+            <div class="project-card">
+                <img src="https://via.placeholder.com/300x200" alt="Smart Factory">
+                <div class="project-card-content">
+                    <span class="category">제조</span>
+                    <h3>스마트 팩토리 구축</h3>
+                    <p>AI 기반 제조 공정 최적화 시스템 구축을 통한 생산성 30% 향상</p>
+                    <a href="#project1" style="color:var(--main-color);font-weight:600;text-decoration:none;">자세히 보기 &rarr;</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://via.placeholder.com/300x200" alt="Financial Risk">
+                <div class="project-card-content">
+                    <span class="category">금융</span>
+                    <h3>금융 리스크 분석</h3>
+                    <p>AI 기반 금융 리스크 예측 시스템으로 위험 감지율 85% 달성</p>
+                    <a href="#project2" style="color:var(--main-color);font-weight:600;text-decoration:none;">자세히 보기 &rarr;</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://via.placeholder.com/300x200" alt="Medical Imaging">
+                <div class="project-card-content">
+                    <span class="category">의료</span>
+                    <h3>의료 영상 분석</h3>
+                    <p>딥러닝 기반 의료 영상 진단 보조 시스템으로 진단 정확도 95% 달성</p>
+                    <a href="#project3" style="color:var(--main-color);font-weight:600;text-decoration:none;">자세히 보기 &rarr;</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://via.placeholder.com/300x200" alt="Retail Analytics">
+                <div class="project-card-content">
+                    <span class="category">유통</span>
+                    <h3>고객 행동 분석</h3>
+                    <p>머신러닝 기반 고객 행동 패턴 분석으로 매출 25% 증가</p>
+                    <a href="#project4" style="color:var(--main-color);font-weight:600;text-decoration:none;">자세히 보기 &rarr;</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://via.placeholder.com/300x200" alt="Energy Optimization">
+                <div class="project-card-content">
+                    <span class="category">제조</span>
+                    <h3>에너지 최적화</h3>
+                    <p>AI 기반 에너지 사용 최적화 시스템으로 에너지 비용 40% 절감</p>
+                    <a href="#project5" style="color:var(--main-color);font-weight:600;text-decoration:none;">자세히 보기 &rarr;</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://via.placeholder.com/300x200" alt="Fraud Detection">
+                <div class="project-card-content">
+                    <span class="category">금융</span>
+                    <h3>사기 거래 탐지</h3>
+                    <p>실시간 AI 기반 사기 거래 탐지 시스템으로 사기 피해액 75% 감소</p>
+                    <a href="#project6" style="color:var(--main-color);font-weight:600;text-decoration:none;">자세히 보기 &rarr;</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="project1" class="project-detail">
+            <div class="project-detail-header">
+                <h3>스마트 팩토리 구축</h3>
+                <p>국내 대형 제조업체를 위한 AI 기반 생산 최적화 시스템</p>
+            </div>
+            <div class="project-detail-content">
+                <div class="project-detail-image">
+                    <img src="https://via.placeholder.com/600x400" alt="Smart Factory Project">
+                </div>
+                <div class="project-detail-text">
+                    <p>이 프로젝트는 자동차 부품 제조 기업을 위한 스마트 팩토리 구축 사례입니다. 생산 라인의 각종 센서 데이터를 수집하고 AI 분석을 통해 생산 최적화 및 예측 유지보수를 실현했습니다.</p>
+                    
+                    <h4>주요 목표</h4>
+                    <ul>
+                        <li>생산 효율성 30% 향상</li>
+                        <li>불량률 50% 감소</li>
+                        <li>유지보수 비용 35% 절감</li>
+                    </ul>
+                    
+                    <h4>적용 기술</h4>
+                    <p>딥러닝 기반 이미지 분석, 시계열 예측 모델, IoT 통합 플랫폼</p>
+                    
+                    <div class="project-stats">
+                        <div class="stat-card">
+                            <h4>생산성 향상</h4>
+                            <p>+30%</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>불량률 감소</h4>
+                            <p>-50%</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>ROI</h4>
+                            <p>243%</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <p>EST의 AI 솔루션 덕분에 우리 공장의 생산성이 획기적으로 향상되었습니다. 특히 예측 유지보수 시스템은 장비 다운타임을 크게 줄여 안정적인 생산이 가능해졌습니다.</p>
+                        <div class="client-info">
+                            <img src="https://via.placeholder.com/50x50" alt="Client">
+                            <div>
+                                <h5>김대표</h5>
+                                <p>자동차 부품 제조업체 생산총괄</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cta-section">
+            <h3>AI 기술로 비즈니스를 혁신하세요</h3>
+            <p>EST의 AI 솔루션을 통해 귀사의 비즈니스를 한 단계 도약시킬 준비가 되셨나요? 지금 바로 상담을 신청하세요.</p>
+            <a href="contact.html" class="cta-button">무료 상담 신청</a>
+        </div>
+    </section>
+    
     <footer>
-        <p>&copy; 2023 EST. All rights reserved.</p>
-        <p>서울특별시 강남구 테헤란로 123 | Tel: 02-1234-5678 | Email: contact@est.com</p>
+        <p>&copy; 2025 EST - Empowering Business Through AI Innovation</p>
+        <p>서울시 강남구 테헤란로 123 AI빌딩 8층</p>
+        <p>contact@est-ai.com | 02-1234-5678</p>
     </footer>
 </body>
-
 </html>
